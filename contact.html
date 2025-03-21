@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Rakshak IITB</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { neon: "#00FFAA", darkbg: "#0D0D0D" }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #0D0D0D; color: white; }
+        .form-input { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 10px; padding: 12px; width: 100%; transition: all 0.3s; }
+        .form-input:focus { outline: none; box-shadow: 0 0 15px #00FFAA; }
+        .send-btn { background: #00FFAA; padding: 12px 20px; font-weight: bold; text-transform: uppercase; border-radius: 8px; transition: 0.3s; }
+        .send-btn:hover { background: #00cc88; transform: scale(1.05); box-shadow: 0 0 20px #00FFAA; }
+        .success-msg { background: rgba(0, 255, 170, 0.2); color: #00FFAA; padding: 10px; border-radius: 10px; text-align: center; display: none; }
+        .contact-box { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px); padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .contact-box:hover { box-shadow: 0 0 10px #00FFAA; transform: scale(1.02); transition: all 0.3s; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 bg-opacity-80 fixed w-full z-50 shadow-lg py-3">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div class="text-2xl font-bold text-neon">Rakshak IITB</div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="hover:text-neon transition">Home</a></li>
+                <li><a href="Plane.html" class="hover:text-neon transition">Planes</a></li>
+                <li><a href="competitions.html" class="hover:text-neon transition">Competitions</a></li>
+                <li><a href="team.html" class="hover:text-neon transition">Team</a></li>
+                <li><a href="contact.html" class="hover:text-neon transition">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="h-screen flex items-center justify-center text-center px-6">
+        <div>
+            <h1 class="text-5xl font-bold text-neon animate-pulse">Contact Us</h1>
+            <p class="text-gray-300 text-lg mt-3">Reach out to us for any inquiries or collaborations.</p>
+        </div>
+    </section>
+
+    <!-- Contact Details & Form -->
+    <section class="py-16 bg-darkbg">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-start justify-between">
+            
+            <!-- Contact Details -->
+            <div class="w-full md:w-1/3 space-y-6">
+                <h2 class="text-4xl font-bold text-neon">Our Contact</h2>
+
+                <div class="contact-box">
+                    <h3 class="text-xl text-neon">E-mail:</h3>
+                    <p class="text-gray-300">rakshak.uavs@gmail.com</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3 class="text-xl text-neon">Phone:</h3>
+                    <p class="text-gray-300">Apoorva Rajadhyaksha: +91-7021330989</p>
+                    <p class="text-gray-300">Jahnvee Tailor: +91-7023447200</p>
+                    <p class="text-gray-300">Vraj Kanubhai Patel: +91-8866731254</p>
+                </div>
+
+                <div class="contact-box flex space-x-6">
+                    <a href="#" class="text-neon"><i class="fab fa-facebook text-3xl"></i></a>
+                    <a href="#" class="text-neon"><i class="fab fa-instagram text-3xl"></i></a>
+                    <a href="#" class="text-neon"><i class="fab fa-twitter text-3xl"></i></a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="w-full md:w-1/2 mt-10 md:mt-0">
+                <form id="contactForm" class="space-y-6">
+                    <input type="text" id="name" name="name" placeholder="Your Name" class="form-input">
+                    <input type="email" id="email" name="email" placeholder="Your Email" class="form-input">
+                    <textarea id="message" name="message" placeholder="Your Message" class="form-input" rows="4"></textarea>
+                    <button type="submit" class="send-btn w-full">Send Message</button>
+                </form>
+                <p id="responseMessage" class="success-msg mt-4">✅ Message sent successfully!</p>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch("send_email.php", { method: "POST", body: formData })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.includes("Success")) {
+                        document.getElementById("responseMessage").style.display = "block";
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+        });
+    </script>
+
+</body>
+</html>
+s

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Planes | Rakshak IITB</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { neon: "#00FFAA", darkbg: "#0D0D0D" }
+                }
+            }
+        };
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: #0D0D0D; color: white; }
+        .plane-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); transition: all 0.3s ease-in-out; }
+        .plane-card:hover { transform: scale(1.05); box-shadow: 0 0 20px #00FFAA; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.show { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="bg-gray-900 bg-opacity-80 fixed w-full z-50 shadow-lg py-3">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div class="text-2xl font-bold text-neon">Rakshak IITB</div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="index.html" class="hover:text-neon transition">Home</a></li>
+                <li><a href="Plane.html" class="hover:text-neon transition">Planes</a></li>
+                <li><a href="competitions.html" class="hover:text-neon transition">Competitions</a></li>
+                <li><a href="team.html" class="hover:text-neon transition">Team</a></li>
+                <li><a href="contact.html" class="hover:text-neon transition">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center text-center px-6">
+        <div>
+            <h1 class="text-5xl font-bold text-neon animate-pulse">Our Planes</h1>
+            <p class="text-gray-300 text-lg mt-3">Pioneering the future of UAV technology.</p>
+        </div>
+    </section>
+
+    <!-- Plane Gallery -->
+    <section class="py-16 bg-darkbg">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- ARES -->
+                <div class="plane-card fade-in">
+                    <img src="images/Ares.jpg" alt="ARES UAV" class="w-full h-60 object-cover rounded-lg">
+                    <h2 class="text-3xl font-bold text-neon mt-4">ARES</h2>
+                    <p class="text-gray-300 mt-2">
+                        Meet Ares, a high-performance UAV built for the UAS Challenge 2024. With a 2.2-meter wingspan and weighing just 5 kg, it delivers a 35-minute flight time and autonomous features like takeoff, landing, waypoint navigation, and payload drop. Ares is constructed with a carbon fiber body and EPP wings for durability and water resistance. Its modular design enables tool-free assembly in under 2 minutes. Capable of taking off in under 10 meters, it can carry up to 8 kg and cruises efficiently at 14 meters per second.
+                    </p>
+                </div>
+
+                <!-- SKYWALKER -->
+                <div class="plane-card fade-in">
+                    <img src="images/skywalker.jpg" alt="Skywalker" class="w-full h-60 object-cover rounded-lg">
+                    <h2 class="text-3xl font-bold text-neon mt-4">SKYWALKER</h2>
+                    <p class="text-gray-300 mt-2">
+                        Built in 2017, a recent addition to the Team's plane collection. Designed for the AUVSI-SUAS competition, the plane has an endurance of 30-40 minutes of completely autonomous operation of object detection and classification, interoperability, waypoint navigation, flight, take-off and landing. It has a take-off gross weight of 7.5Kgs with a cruise speed of 12 m/s.
+                    </p>
+                </div>
+
+                <!-- SANDY 2.0 -->
+                <div class="plane-card fade-in">
+                    <img src="images/sandy2.jpg" alt="Sandy 2.0" class="w-full h-60 object-cover rounded-lg">
+                    <h2 class="text-3xl font-bold text-neon mt-4">SANDY 2.0</h2>
+                    <p class="text-gray-300 mt-2">
+                        A variant of Sandy with the same role as Sandy 1.0 but with twin motors and a camera mounted at the front to test the image capture features and is one of the finest planes built in the team's history.
+                    </p>
+                </div>
+
+                <!-- SANDY -->
+                <div class="plane-card fade-in">
+                    <img src="images/sandy.jpg" alt="Sandy" class="w-full h-60 object-cover rounded-lg">
+                    <h2 class="text-3xl font-bold text-neon mt-4">SANDY</h2>
+                    <p class="text-gray-300 mt-2">
+                        A relatively small plane used for testing of individual components. It was our first test dummy for autonomous flying and has provided excellent results to proceed autonomy to bigger plane.
+                    </p>
+                </div>
+
+                <!-- SMOKEY -->
+                <div class="plane-card fade-in">
+                    <img src="images/smokey.jpg" alt="Smokey" class="w-full h-60 object-cover rounded-lg">
+                    <h2 class="text-3xl font-bold text-neon mt-4">SMOKEY</h2>
+                    <p class="text-gray-300 mt-2">
+                        Built in 2015, this plane was the first to have the capability of an autonomous system ingrained within. Designed for AUVSI competition in 2015.
+                    </p>
+                </div>
+
+                <!-- SAE PLANE -->
+                <div class="plane-card fade-in">
+                    <img src="images/saeplane.jpg" alt="SAE Plane" class="w-full h-60 object-cover rounded-lg">
+                    <h2 class="text-3xl font-bold text-neon mt-4">SAE PLANE</h2>
+                    <p class="text-gray-300 mt-2">
+                        Built in 2015, this plane represented our team in SAE-2015 competition. A stable, robust and payload-efficient plane, it won 7th place in design and 12th place overall.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll(".fade-in").forEach(el => el.classList.add("show"));
+        });
+    </script>
+
+</body>
+</html>

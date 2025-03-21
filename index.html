@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rakshak IITB | UAV Team</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { neon: "#00FFAA", darkbg: "#111111", lightbg: "#f5f5f5" }
+                }
+            }
+        };
+    </script>
+
+    <!-- AOS (Animations) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body { font-family: 'Poppins', sans-serif; transition: all 0.5s ease; }
+        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; }
+        .glow:hover { box-shadow: 0 0 10px #00FFAA; }
+        .video-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; filter: brightness(0.4); }
+        .counter { font-size: 2rem; font-weight: bold; color: #00FFAA; }
+        .dark-mode { background-color: #111111; color: white; }
+        .light-mode { background-color: #f5f5f5; color: black; }
+        .timeline { position: relative; max-width: 1000px; margin: auto; }
+        .timeline::after { content: ''; position: absolute; width: 6px; background: #00FFAA; top: 0; bottom: 0; left: 50%; margin-left: -3px; }
+        .timeline-item { position: relative; padding: 20px; width: 50%; }
+        .left { left: 0; }
+        .right { left: 50%; }
+        .timeline-item::before { content: ""; position: absolute; top: 50%; right: -10px; border-width: 10px; border-style: solid; border-color: transparent transparent transparent #00FFAA; }
+        .right::before { left: -10px; border-color: transparent #00FFAA transparent transparent; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed top-0 left-0 w-full h-full bg-black flex items-center justify-center z-50">
+        <div class="animate-spin h-16 w-16 border-t-4 border-neon rounded-full"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 bg-opacity-80 fixed w-full z-50 shadow-lg py-3">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <div class="text-2xl font-bold text-neon flex items-center">
+                <img src="images/logo.jpg" alt="Rakshak Logo" class="h-10 mr-3">
+                Rakshak IITB
+            </div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#" class="hover:text-neon transition">Home</a></li>
+                <li><a href="plane.html" class="hover:text-neon transition">Planes</a></li>
+                <li><a href="competitions.html" class="hover:text-neon transition">Competitions</a></li>
+                <li><a href="team.html" class="hover:text-neon transition">Team</a></li>
+                <li><a href="contact.html" class="hover:text-neon transition">Contact</a></li>
+            </ul>
+            <button id="toggle-mode" class="ml-4 bg-neon text-black px-3 py-1 rounded">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center text-center">
+        <video autoplay muted loop class="video-bg">
+            <source src="uav-video.mp4" type="video/mp4">
+        </video>
+        <div class="z-10">
+            <h1 class="text-5xl font-bold glow" data-aos="zoom-in">Pushing UAV Boundaries</h1>
+            <p class="mt-4 text-lg text-gray-300" data-aos="fade-up">"A mile of highway will take you a mile, but a mile of runway can take you anywhere."</p>
+            <a href="competitions.html" class="mt-6 inline-block bg-neon text-black px-6 py-3 rounded-lg text-lg font-bold transition transform hover:scale-105">Explore Our Journey</a>
+            
+        </div>
+    </section>
+
+
+    <!-- Introduction Section -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">About Rakshak IIT Bombay</h2>
+            <p class="text-gray-300 mb-6" data-aos="fade-up" data-aos-delay="200">
+                Rakshak IITB is the official team of IIT Bombay, consisting of over 40 students from various disciplines. Since 2015, we have been developing robust Unmanned Aerial Vehicles (UAVs) to support Search and Rescue Operations (SRO) during disasters. Our aircraft provide relief measures in disaster-stricken areas and can be adapted for surveys, mapping, and wildlife conservation. Our designs tackle these challenges cost-effectively without compromising human safety.
+            </p>
+            <p class="text-gray-300" data-aos="fade-up" data-aos-delay="400">
+                To date, we have developed five planes. Each year, we push our limits through innovation and teamwork. We are grateful to IIT Bombay for supporting us and providing a platform to showcase our talents internationally.
+            </p>
+        </div>
+    </section>
+    <!-- Timeline Section -->
+    <section class="py-16 bg-gray-900 text-center">
+        <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Rakshak IITB Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item left" data-aos="fade-right">
+                <h3 class="text-xl font-bold">2015 - Team Formation</h3>
+                <p>Rakshak IITB was founded to build UAVs for rescue missions.</p>
+            </div>
+            <div class="timeline-item right" data-aos="fade-left">
+                <h3 class="text-xl font-bold">2018 - First International Competition</h3>
+                <p>Participated in UAV challenges and secured a top position.</p>
+            </div>
+            <div class="timeline-item left" data-aos="fade-right">
+                <h3 class="text-xl font-bold">2023 - Advanced UAVs</h3>
+                <p>Designed autonomous UAVs with AI-based navigation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- UAV Gallery -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Our UAVs</h2>
+            <div class="flex overflow-x-auto space-x-4 p-4">
+                <img src="images/Ares.jpg" class="h-40" data-aos="zoom-in">
+                <img src="images/saeplane.jpg" class="h-40" data-aos="zoom-in">
+                <img src="images/skywalker.jpg" class="h-40" data-aos="zoom-in">
+                <img src="images/sandy.jpg" class="h-40" data-aos="zoom-in">
+                <img src="images/sandy2.jpg" class="h-40" data-aos="zoom-in">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-6 text-center">
+        <p>© 2025 Rakshak IIT Bombay | All Rights Reserved</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000 });
+
+        // Dark/Light Mode Toggle
+        document.getElementById("toggle-mode").addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            document.body.classList.toggle("light-mode");
+        });
+
+        // Counter Animation
+        window.onload = () => {
+            document.querySelectorAll(".counter").forEach(counter => {
+                let target = +counter.dataset.count, count = 0;
+                let interval = setInterval(() => {
+                    count += Math.ceil(target / 50);
+                    if (count >= target) { counter.innerText = target; clearInterval(interval); }
+                    else counter.innerText = count;
+                }, 50);
+            });
+        };
+
+        // Preloader Removal
+        window.onload = () => { document.getElementById("preloader").style.display = "none"; };
+
+
+    </script>
+
+</body>
+</html>
